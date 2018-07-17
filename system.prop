@@ -1,3 +1,4 @@
 #
 # system.prop for gtactive2lte
 #
+ro.secure=0

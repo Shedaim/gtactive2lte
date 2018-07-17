@@ -1,2 +1,2 @@
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/device_gtactive2lte.mk
+	$(LOCAL_DIR)/omni_gtactive2lte.mk
