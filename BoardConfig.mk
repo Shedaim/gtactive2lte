@@ -1,30 +1,47 @@
-USE_CAMERA_STUB := true
+#USE_CAMERA_STUB := true
 
 # inherit from the proprietary version
 -include vendor/samsung/gtactive2lte/BoardConfigVendor.mk
 
-TARGET_ARCH := arm
+#TARGET_ARCH := arm
+TARGET_ARCH := arm64
 TARGET_NO_BOOTLOADER := true
 TARGET_BOARD_PLATFORM := universal7870
-TARGET_CPU_ABI := armeabi-v7a
-TARGET_CPU_ABI2 := armeabi
-TARGET_ARCH_VARIANT := armv7-a-neon
-TARGET_CPU_VARIANT := cortex-a7
-TARGET_CPU_SMP := true
-ARCH_ARM_HAVE_TLS_REGISTER := true
-TARGET_BOOTLOADER_BOARD_NAME := gtactive2lte
-TARGET_BUILD_VARIANT=eng
 
+#TARGET_CPU_ABI := armeabi-v7a
+#TARGET_CPU_ABI2 := armeabi
+#TARGET_ARCH_VARIANT := armv7-a-neon
+#TARGET_CPU_VARIANT := cortex-a7
+TARGET_BOOTLOADER_BOARD_NAME := gtactive2lte
+TARGET_BUILD_VARIANT := eng
+
+
+TARGET_BOOTLOADER_BOARD_NAME := universal7880
+TARGET_ARCH := arm64
+TARGET_ARCH_VARIANT := armv8-a
+TARGET_CPU_ABI := arm64-v8a
+TARGET_CPU_ABI2 := arm64-v8a
+TARGET_CPU_VARIANT := generic
+TARGET_CPU_SMP := true
+TARGET_2ND_ARCH := arm
+TARGET_2ND_ARCH_VARIANT := armv7-a-neon
+TARGET_2ND_CPU_ABI := armeabi-v7a
+TARGET_2ND_CPU_ABI2 := armeabi
+#TARGET_2ND_CPU_VARIANT := cortex-a53
+TARGET_2ND_CPU_VARIANT := generic
+TARGET_USES_64_BIT_BINDER := true
+
+PLATFORM_VERSION=7.1.1
 ############### Board Configurations #################
 
 BOARD_KERNEL_CMDLINE := 
-BOARD_KERNEL_BASE := 10000000
+BOARD_KERNEL_BASE := 0x10000000
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_HASH_TYPE := sha1
-BOARD_KERNEL_OFFSET := 00008000
-BOARD_RAMDISK_OFFSET := 01000000
-BOARD_SECOND_OFFSET := 00f00000
-BOARD_TAGS_OFFSET := 00000100
+BOARD_KERNEL_OFFSET := 0x00008000
+BOARD_RAMDISK_OFFSET := 0x01000000
+BOARD_SECOND_OFFSET := 0x00f00000
+BOARD_TAGS_OFFSET := 0x00000100
 BOARD_OS_VERSION := 7.1.1
 BOARD_OS_PATCH_LEVEL := 2017-10
 BOARD_DT_SIZE := 501760
@@ -38,12 +55,12 @@ BOARD_FLASH_BLOCK_SIZE := 131072
 
 
 ################# Kernel Sources ########################
-
-#TARGET_PREBUILT_KERNEL := device/samsung/gtactive2lte/kernel
+TARGET_USES_UNCOMPRESSED_KERNEL := true
+TARGET_PREBUILT_KERNEL := false
 TARGET_KERNEL_BUILT_FROM_SOURCE := true
-TARGET_KERNEL_SOURCE := device/samsung/gtactive2lte/Kernel
+TARGET_KERNEL_SOURCE := device/samsung/gtactive2lte/kernel
 BOARD_HAS_NO_SELECT_BUTTON := true
-
+TARGET_KERNEL_CONFIG := exynos7870-gtactive2lte_eur_open_defconfig
 
 ############# TWRP specific build flags ##################
 
@@ -78,9 +95,9 @@ TWRP_INCLUDE_LOGCAT := true
 TW_USE_TOOLBOX := false
 
 #For Samsung devices - Inject TWRP as second ramdisk.
-TW_INCLUDE_INJECTTWRP := true
+#TW_INCLUDE_INJECTTWRP := true
 # If your device has recovery as a second ramdisk of boot.img
-TW_HAS_NO_RECOVERY_PARTITION := true
+#TW_HAS_NO_RECOVERY_PARTITION := true
 
 
 

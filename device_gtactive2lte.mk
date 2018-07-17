@@ -9,7 +9,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
 
 ifeq ($(TARGET_PREBUILT_KERNEL),)
-	LOCAL_KERNEL := device/samsung/gtactive2lte/kernel
+	LOCAL_KERNEL := device/samsung/gtactive2lte/
 else
 	LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
 endif
