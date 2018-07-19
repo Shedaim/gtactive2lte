@@ -1,40 +1,45 @@
-#USE_CAMERA_STUB := true
+DEVICE_PATH := device/samsung/gtactive2lte
 
 # inherit from the proprietary version
 -include vendor/samsung/gtactive2lte/BoardConfigVendor.mk
 
-#TARGET_ARCH := arm
-TARGET_ARCH := arm64
-TARGET_NO_BOOTLOADER := true
-TARGET_BOARD_PLATFORM := universal7870
-
-#TARGET_CPU_ABI := armeabi-v7a
-#TARGET_CPU_ABI2 := armeabi
-#TARGET_ARCH_VARIANT := armv7-a-neon
-#TARGET_CPU_VARIANT := cortex-a7
-TARGET_BOOTLOADER_BOARD_NAME := gtactive2lte
+################ General #######################
+TARGET_SOC := exynos7870
+TARGET_BOARD_PLATFORM := exynos5
+BOARD_VENDOR := samsung
+TARGET_POWERHAL_VARIANT := samsung
 TARGET_BUILD_VARIANT := eng
-
-
 TARGET_BOOTLOADER_BOARD_NAME := universal7880
-TARGET_ARCH := arm64
-TARGET_ARCH_VARIANT := armv8-a
-TARGET_CPU_ABI := arm64-v8a
-TARGET_CPU_ABI2 := arm64-v8a
-TARGET_CPU_VARIANT := generic
-TARGET_CPU_SMP := true
-TARGET_2ND_ARCH := arm
-TARGET_2ND_ARCH_VARIANT := armv7-a-neon
-TARGET_2ND_CPU_ABI := armeabi-v7a
-TARGET_2ND_CPU_ABI2 := armeabi
-#TARGET_2ND_CPU_VARIANT := cortex-a53
-TARGET_2ND_CPU_VARIANT := generic
-TARGET_USES_64_BIT_BINDER := true
-
 PLATFORM_VERSION=7.1.1
-############### Board Configurations #################
 
-BOARD_KERNEL_CMDLINE := 
+
+################# arm Architecture #####################
+TARGET_ARCH := arm
+TARGET_CPU_ABI := armeabi-v7a
+TARGET_CPU_ABI2 := armeabi
+TARGET_ARCH_VARIANT := armv7-a-neon
+TARGET_CPU_VARIANT := cortex-a53
+TARGET_CPU_CORTEX_A53 := true
+
+################# arm64 Architecture #####################
+
+#TARGET_ARCH := arm64
+#TARGET_ARCH_VARIANT := armv8-a
+#TARGET_CPU_ABI := arm64-v8a
+#TARGET_CPU_ABI2 := arm64-v8a
+#TARGET_CPU_VARIANT := cortex-a53
+#TARGET_CPU_SMP := true
+#TARGET_2ND_ARCH := arm
+#TARGET_2ND_ARCH_VARIANT := armv7-a-neon
+#TARGET_2ND_CPU_ABI := armeabi-v7a
+#TARGET_2ND_CPU_ABI2 := armeabi
+#TARGET_2ND_CPU_VARIANT := cortex-a53
+#TARGET_2ND_CPU_VARIANT := generic
+#TARGET_USES_64_BIT_BINDER := true
+
+
+############### Board Configurations #################
+BOARD_KERNEL_CMDLINE := # Exynos doesn't take cmdline arguments from boot image
 BOARD_KERNEL_BASE := 0x10000000
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_HASH_TYPE := sha1
@@ -53,6 +58,13 @@ BOARD_SYSTEMIMAGE_PARTITION_SIZE := 3137544192
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 11708616704
 BOARD_FLASH_BLOCK_SIZE := 131072
 
+# Use this flag if the board has a ext4 partition larger than 2gb
+BOARD_HAS_LARGE_FILESYSTEM := true
+TARGET_USERIMAGES_USE_EXT4 := true
+TARGET_USERIMAGES_USE_F2FS := true
+BOARD_USES_HWC_SERVICES := true
+BOARD_SEPOLICY_DIRS := $(DEVICE_PATH)/sepolicy
+
 
 ################# Kernel Sources ########################
 TARGET_USES_UNCOMPRESSED_KERNEL := true
@@ -61,9 +73,16 @@ TARGET_KERNEL_BUILT_FROM_SOURCE := true
 TARGET_KERNEL_SOURCE := device/samsung/gtactive2lte/kernel
 BOARD_HAS_NO_SELECT_BUTTON := true
 TARGET_KERNEL_CONFIG := exynos7870-gtactive2lte_eur_open_defconfig
+TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
+TARGET_KERNEL_ARCH := arm64
+TARGET_KERNEL_HEADER_ARCH := arm64
+
+
+################## Recovery ########################
+TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/ramdisk/fstab.samsungexynos7870
+
 
 ############# TWRP specific build flags ##################
-
 TARGET_SCREEN_WIDTH = 720
 TARGET_SCREEN_HEIGHT = 1080
 RECOVERY_SDCARD_ON_DATA := true
@@ -73,6 +92,11 @@ TW_BRIGHTNESS_PATH := "/sys/devices/13900000.dsim/backlight/panel/brightness"
 TW_MAX_BRIGHTNESS := 255
 TW_DEFAULT_BRIGHTNESS := 162
 TW_NO_REBOOT_BOOTLOADER := true
+
+# Selinux support for backup/restore
+BOARD_SEPOLICY_DIRS := $(DEVICE_PATH)/sepolicy
+HAVE_SELINUX := true
+TW_EXCLUDE_SUPERSU := true
 
 # Download mode for Samsung devices
 TW_HAS_DOWNLOAD_MODE := true

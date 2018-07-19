@@ -1,4 +1,47 @@
 #
-# system.prop for gtactive2lte
+# system.prop for universal7870
 #
-ro.secure=0
+
+# Audio
+af.fast_track_multiplier=1
+audio_hal.disable_two_mic=true
+
+ro.sf.lcd_density=480
+
+ro.arch=exynos7870
+ro.kernel.qemu=0
+ro.kernel.qemu.gles=1
+persist.demo.hdmirotationlock=false
+ro.zygote.disable_gl_preload=1
+
+# SAMP_SPCM
+sys.config.samp_spcm_enable=true
+sys.config.spcm_db_enable=true
+sys.config.spcm_db_launcher=true
+sys.config.spcm_preload_enable=true
+
+#GLES
+ro.opengles.version=196608
+
+# HWC
+debug.hwc.otf=1
+debug.hwc.winupdate=1
+debug.hwc.force_gpu=1
+
+# FRP
+#ro.frp.pst=/dev/block/persistent
+
+# Radio
+#telephony.lteOnCdmaDevice=0
+persist.radio.apm_sim_not_pwdn=1
+persist.radio.add_power_save=1
+rild.libpath=/system/lib/libsec-ril.so
+rild.libargs=-d /dev/ttyS0
+ro.telephony.ril_class=SlteRIL
+ro.use_data_netmgrd=false
+persist.data.netmgrd.qos.enable=false
+ro.ril.hsxpa=1
+ro.ril.gprsclass=10
+
+# Strict Mode
+persist.sys.strictmode.disable=true

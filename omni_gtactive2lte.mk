@@ -1,5 +1,3 @@
-# Inherit some common CM stuff.
-#$(call inherit-product, vendor/cm/config/common_full_phone.mk)
 # Inherit from our omni product configuration
 $(call inherit-product, vendor/omni/config/common.mk)
 
