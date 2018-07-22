@@ -53,7 +53,7 @@ BOARD_OS_VERSION := 7.1.1
 BOARD_OS_PATCH_LEVEL := 2017-10
 BOARD_DT_SIZE := 501760
 
-BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x01000000 --tags_offset 0x00000100 --board SRPQE17A000RU --dt $(DEVICE_PATH)/dt.img
+BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x01000000 --second_offset 0x00f00000 --tags_offset 0x00000100 --board SRPQE17A000RU --dt $(DEVICE_PATH)/dt.img
 
 # fix this up by examining /proc/mtd on a running device
 BOARD_BOOTIMAGE_PARTITION_SIZE := 33554432
