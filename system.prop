@@ -45,3 +45,6 @@ ro.ril.gprsclass=10
 
 # Strict Mode
 persist.sys.strictmode.disable=true
+
+
+ro.sf.hwrotation=180

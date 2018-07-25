@@ -4,6 +4,7 @@
 /cache	ext4	/dev/block/platform/13540000.dwmmc0/by-name/CACHE
 /system	ext4	/dev/block/platform/13540000.dwmmc0/by-name/SYSTEM
 /data	ext4	/dev/block/platform/13540000.dwmmc0/by-name/USERDATA	flags=encryptable=footer;length=-20480
+/sdcard	vfat	/dev/block/mmcblk1p1	flags=display="SDcard";storage;wipeingui;removable
 /modem	emmc	/dev/block/platform/13540000.dwmmc0/by-name/RADIO	flags=display=MODEM
 /preload	ext4	/dev/block/platform/13540000.dwmmc0/by-name/HIDDEN      flags=display="Preload";wipeingui;backup=1
 /cpefs	ext4	/dev/block/platform/13540000.dwmmc0/by-name/CPEFS
