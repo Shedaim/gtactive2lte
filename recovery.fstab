@@ -7,3 +7,6 @@
 /modem	emmc	/dev/block/platform/13540000.dwmmc0/by-name/RADIO	flags=display=MODEM
 /preload	ext4	/dev/block/platform/13540000.dwmmc0/by-name/HIDDEN      flags=display="Preload";wipeingui;backup=1
 /cpefs	ext4	/dev/block/platform/13540000.dwmmc0/by-name/CPEFS
+
+/external_sdcard vfat	/dev/block/mmcblk1p1	/dev/block/mmcblk1	flags=display="Micro SDcard";storage;wipeingui;removable
+/usb-otg	vfat	/dev/block/sde1	/dev/block/sde	flags=display="USB-OTG";storage;wipeingui;removable

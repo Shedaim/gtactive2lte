@@ -63,12 +63,10 @@ TARGET_KERNEL_HEADER_ARCH := arm64
 
 
 ################## Recovery ########################
-#TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/ramdisk/fstab.samsungexynos7870
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery.fstab
 
 ############# TWRP specific build flags ##################
 TW_THEME := portrait_mdpi
-<<<<<<< HEAD
 
 # Download mode for Samsung devices
 TW_HAS_DOWNLOAD_MODE := true
@@ -76,7 +74,6 @@ TW_HAS_DOWNLOAD_MODE := true
 # remove button to reboot to bootloader as Samsung devices use Download mode
 TW_NO_REBOOT_BOOTLOADER := true
 
-=======
 # RECOVERY_SDCARD_ON_DATA := true
 # Download mode for Samsung devices
 TW_HAS_DOWNLOAD_MODE := true
@@ -84,7 +81,6 @@ TW_HAS_DOWNLOAD_MODE := true
 TW_NO_REBOOT_BOOTLOADER := true
 
 
->>>>>>> d666b1d72aecf6ffffd81b93d366adf57e7c16df
 # No MTP in recovery. Allows easy use of adb automatically
 TW_EXCLUDE_MTP := true
 
