@@ -10,7 +10,7 @@ BOARD_VENDOR := samsung
 TARGET_POWERHAL_VARIANT := samsung
 TARGET_BUILD_VARIANT := eng
 TARGET_BOOTLOADER_BOARD_NAME := universal7880
-PLATFORM_VERSION=7.1.1
+#PLATFORM_VERSION=7.1.1
 
 
 ################# arm Architecture #####################
@@ -28,8 +28,8 @@ BOARD_PAGE_SIZE := 2048
 BOARD_KERNEL_BASE := 0x10000000
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_HASH_TYPE := sha1
-BOARD_OS_VERSION := 7.1.1
-BOARD_OS_PATCH_LEVEL := 2017-10
+#BOARD_OS_VERSION := 7.1.1
+#BOARD_OS_PATCH_LEVEL := 2017-10
 BOARD_DT_SIZE := 501760
 
 BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x01000000 --second_offset 0x00f00000 --tags_offset 0x00000100 --board SRPQE17A000RU --dt $(DEVICE_PATH)/dt.img
@@ -63,7 +63,8 @@ TARGET_KERNEL_HEADER_ARCH := arm64
 
 
 ################## Recovery ########################
-TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery.fstab
+TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/ramdisk/fstab.samsungexynos7870
+PRODUCT_COPY_FILES += $(DEVICE_PATH)/twrp.fstab:recovery/root/etc/twrp.fstab
 
 ############# TWRP specific build flags ##################
 TW_THEME := portrait_mdpi
