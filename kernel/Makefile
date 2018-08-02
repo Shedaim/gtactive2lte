@@ -1,8 +1,8 @@
 VERSION = 3
 PATCHLEVEL = 18
 SUBLEVEL = 14
-EXTRAVERSION =
-NAME = Shuffling Zombie Juror
+EXTRAVERSION = 1
+NAME = Ronen King
 
 # *DOCUMENTATION*
 # To see a list of typical targets execute "make help"

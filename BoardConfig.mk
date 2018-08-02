@@ -64,7 +64,8 @@ TARGET_KERNEL_HEADER_ARCH := arm64
 
 ################## Recovery ########################
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/ramdisk/fstab.samsungexynos7870
-PRODUCT_COPY_FILES += $(DEVICE_PATH)/twrp.fstab:recovery/root/etc/twrp.fstab
+#TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/twrp.fstab
+#PRODUCT_COPY_FILES += $(DEVICE_PATH)/twrp.fstab:recovery/root/etc/twrp.fstab
 
 ############# TWRP specific build flags ##################
 TW_THEME := portrait_mdpi
@@ -95,6 +96,7 @@ TW_EXTRA_LANGUAGES := true
 
 # include Logcat daemon for help in debugging
 TWRP_INCLUDE_LOGCAT := true
+TARGET_USES_LOGD := true
 
 # Use Busybox
 TW_USE_TOOLBOX := false
