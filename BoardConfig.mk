@@ -46,7 +46,7 @@ TARGET_USERIMAGES_USE_F2FS := true
 
 ############## Kernel Sources #########################
 TARGET_KERNEL_BUILT_FROM_SOURCE := true
-TARGET_KERNEL_SOURCE := $(DEVICE_PATH)/kernel
+TARGET_KERNEL_SOURCE := kernel/samsung/gtactive2lte
 TARGET_KERNEL_CONFIG := exynos7870-gtactive2lte_eur_open_defconfig
 TARGET_USES_UNCOMPRESSED_KERNEL := true
 TARGET_PREBUILT_KERNEL := false
